@@ -1,0 +1,27 @@
+#ifndef _CIRCULO_H_
+#define _CIRCULO_H_
+#include "punto.h"
+class Circulo {
+private:
+    Punto centro; ///< Centro del círculo
+    double radio; ///< radio del círculo
+public:
+    Circulo(){ centro.setX(0);
+	       centro.setY(0);
+	       radio=0;
+    };
+    Circulo(Punto centro1, double radio1){ centro= centro1; 
+                                           radio= radio1;
+    };
+    void set(Punto centro1, double radio1){ centro= centro1;
+					    radio= radio1;
+    }
+    Punto getCentro() const { return centro; }
+    double getRadio() const { return radio; }
+    void escribir() const; ///< Escribe círculo en formato radio-centro
+    void leer(); ///< lee círculo en formato radio-centro
+    double area() const; ///< Devuelve el área de un círculo
+};
+double distancia (Circulo c1, Circulo c2);
+bool interior (Punto p, Circulo c);
+#endif
